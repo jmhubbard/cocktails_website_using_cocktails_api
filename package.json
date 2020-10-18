@@ -1,0 +1,23 @@
+{
+  "name": "educative_io_sample_project",
+  "version": "1.0.0",
+  "description": "Sample project from education io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmhubbard/educative_io_sample_project.git"
+  },
+  "keywords": [
+    "educative.io",
+    "sample"
+  ],
+  "author": "Jason Hubbard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmhubbard/educative_io_sample_project/issues"
+  },
+  "homepage": "https://github.com/jmhubbard/educative_io_sample_project#readme"
+}
