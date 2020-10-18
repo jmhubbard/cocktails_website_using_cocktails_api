@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/jmhubbard/educative_io_sample_project/issues"
   },
-  "homepage": "https://github.com/jmhubbard/educative_io_sample_project#readme"
+  "homepage": "https://github.com/jmhubbard/educative_io_sample_project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
