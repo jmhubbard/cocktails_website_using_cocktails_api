@@ -23,8 +23,8 @@ app.get("/", (request, response) => {
   response.send("Hello from Express1!");
 });
 
-  app.get("/quotes", (request, response) => {
-    response.sendFile(`${__dirname}/quotes.html`);
+  app.get("/cocktails", (request, response) => {
+    response.sendFile(`${__dirname}/cocktails.html`);
     });
 
 // Start listening to incoming requests
