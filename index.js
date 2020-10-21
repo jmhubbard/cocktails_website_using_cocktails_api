@@ -1,7 +1,7 @@
 // Load the Express package as a module
 const express = require("express");
 
-const test = require("./public/js/test");
+require('dotenv').config()
 
 // Access the exported service
 const app = express();
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 // Start listening to incoming requests
 // If process.env.PORT is not defined, port number 3000 is used
-const listener = app.listen(process.env.PORT || 3000, () => {
+const listener = app.listen(process.env.PORT, () => {
   console.log(`Your app is listening on port ${listener.address().port}`);
 });
 
