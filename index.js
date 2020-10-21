@@ -18,12 +18,8 @@ app.use((req, res, next) => {
     next();
   });
 
-// Return a string for requests to the root URL ("/")
-app.get("/", (request, response) => {
-  response.send("Hello from Express1!");
-});
-
-  app.get("/cocktails", (request, response) => {
+// Load the cocktail.html file at the root URL
+  app.get("/", (request, response) => {
     response.sendFile(`${__dirname}/cocktails.html`);
     });
 
