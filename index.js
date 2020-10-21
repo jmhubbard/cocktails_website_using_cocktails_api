@@ -3,8 +3,6 @@ const express = require("express");
 
 const test = require("./public/js/test");
 
-// const articles = require("./quotes/articles")
-
 // Access the exported service
 const app = express();
 
@@ -24,11 +22,6 @@ app.use((req, res, next) => {
 app.get("/", (request, response) => {
   response.send("Hello from Express1!");
 });
-
-  // Return the articles list in JSON format
-  app.get("/api/articles", (request, response) => {
-    response.json(articles);
-  });
 
   app.get("/quotes", (request, response) => {
     response.sendFile(`${__dirname}/quotes.html`);
