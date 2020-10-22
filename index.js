@@ -27,9 +27,9 @@ app.get("/", (request, response) => {
   response.sendFile(`${__dirname}/cocktails.html`);
   });
 
-app.get("/bootstrap", (request, response) => {
-  response.sendFile(`${__dirname}/test.html`);
-});
+// app.get("/bootstrap", (request, response) => {
+//   response.sendFile(`${__dirname}/test.html`);
+// });
 // Start listening to incoming requests
 // If process.env.PORT is not defined, port number 3000 is used
 const listener = app.listen(process.env.PORT, () => {
