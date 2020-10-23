@@ -11,6 +11,8 @@ const cocktailsByLetter = letter => {
         .then(response => response.json())
         .then(alldrinks => {
             const albumRows = document.getElementById("albumRow");
+            const currentTitle = document.getElementById("pagetitle");
+            currentTitle.textContent = `Cocktail Recipies - All ${letter.toUpperCase()} Drinks`;
             
             if(alldrinks.drinks == null) {
                 const noDrinkMessage = document.createElement("p");
@@ -61,7 +63,7 @@ const cocktailsByLetter = letter => {
                     thirdDiv.appendChild(drinkName);
                     thirdDiv.appendChild(fourthDiv);
                     fourthDiv.appendChild(fifthDiv);
-                    fifthDiv.appendChild(viewButton);                   
+                    fifthDiv.appendChild(viewButton);                  
                 };
             }
 
