@@ -71,6 +71,14 @@ const cocktailsByLetter = letter => {
         })
 };
 
+const setShareUrl = () => {
+    const shareURL = document.getElementById("sharelink");
+    const urlLetter = currentUrlDrinkLetter().toUpperCase();
+    shareURL.href = `/drinksAtoZ/${urlLetter}`;
+};
+
 
 const currentLetter = currentUrlDrinkLetter();
 cocktailsByLetter(currentLetter);
+
+setShareUrl();
