@@ -21,13 +21,13 @@ const cocktailRecipie = id => {
                 const currentDrinkName = currentDrink.strDrink;
                 const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
                 const firstDiv = document.createElement("div");
-                // firstDiv.className = "col-md-4";
-                firstDiv.className = "mx-auto";
+                firstDiv.className = "col-md-4";
+                // firstDiv.className = "mx-auto";
 
                 const secondDiv = document.createElement("div");
                 secondDiv.classList.add("card", "mb-4", "shadow-sm");
                 // secondDiv.classList.add("card", "w-100", "shadow-sm");
-                secondDiv.style.width = "30rem";
+                // secondDiv.style.width = "30rem";
 
                 const thirdDiv = document.createElement("div");
                 thirdDiv.className = "card-body";
