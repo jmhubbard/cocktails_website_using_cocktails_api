@@ -61,9 +61,7 @@ const cocktailsByLetter = letter => {
                     thirdDiv.appendChild(drinkName);
                     thirdDiv.appendChild(fourthDiv);
                     fourthDiv.appendChild(fifthDiv);
-                    fifthDiv.appendChild(viewButton);
-
-                    
+                    fifthDiv.appendChild(viewButton);                   
                 };
             }
 
