@@ -34,7 +34,7 @@ const cocktailsByLetter = letter => {
                     const ingredientList = document.createElement("ul");
     
                     const ingredientStr = "strIngredient";
-                    const ingredientAmount = "strMeasure"
+                    const ingredientAmount = "strMeasure";
     
                     for(item = 1; item <= 25; item++) {
                         const currentIngredient = currentDrink[ingredientStr + item];
