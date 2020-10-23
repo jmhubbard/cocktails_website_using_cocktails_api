@@ -3,14 +3,15 @@ const express = require("express");
 
 require('dotenv').config()
 
+const favicon = require('serve-favicon')
+
 
 // Access the exported service
 const app = express();
 
 app.use(express.static('public'));
 
-// require('bootstrap');
-// require('jquery');
+app.use(favicon(`${__dirname}/public/favicon.ico`));
 
 // Enable CORS (see https://enable-cors.org/server_expressjs.html)
 app.use((req, res, next) => {
