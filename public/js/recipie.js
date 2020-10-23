@@ -27,7 +27,7 @@ const cocktailRecipie = id => {
                 const secondDiv = document.createElement("div");
                 secondDiv.classList.add("card", "mb-4", "shadow-sm");
                 // secondDiv.classList.add("card", "w-100", "shadow-sm");
-                secondDiv.style.width = "50rem";
+                secondDiv.style.width = "30rem";
 
                 const thirdDiv = document.createElement("div");
                 thirdDiv.className = "card-body";
