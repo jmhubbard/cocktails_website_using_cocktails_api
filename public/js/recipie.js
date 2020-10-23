@@ -64,19 +64,6 @@ const cocktailRecipie = id => {
 
                 const drinkDirections = document.createElement("p");
                 drinkDirections.textContent = currentDrink.strInstructions;
-
-
-                const fourthDiv = document.createElement("div");
-                fourthDiv.classList.add("d-flex", "justify-content-center");
-
-                const fifthDiv = document.createElement("div");
-                fifthDiv.className = "btn-group";
-
-                const viewButton = document.createElement("button");
-                viewButton.type = "button";
-                viewButton.classList.add("btn", "btn-sm", "btn-outline-secondary");
-                viewButton.textContent = "View Cocktail";
-
                 
                 albumRows.appendChild(firstDiv);
 
@@ -91,9 +78,6 @@ const cocktailRecipie = id => {
                 thirdDiv.appendChild(drinkDirections);
                 thirdDiv.appendChild(fourthDiv);
 
-                fourthDiv.appendChild(fifthDiv);
-
-                fifthDiv.appendChild(viewButton);
             };
 
         })
