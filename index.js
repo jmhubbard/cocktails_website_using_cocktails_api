@@ -28,15 +28,15 @@ app.use((req, res, next) => {
 //   });
 
 app.get("/", (request, response) => {
-  response.sendFile(`${__dirname}/home.html`);
+  response.sendFile(`${__dirname}/views/home.html`);
 });
 
 app.get("/drinksAtoZ/:letter", (request, response) => {
-  response.sendFile(`${__dirname}/drinksAtoZ.html`);
+  response.sendFile(`${__dirname}/views/drinksAtoZ.html`);
 });
 
 app.get('/recipie/:drinkID',function(request,response){
-  response.sendFile(`${__dirname}/recipie.html`);
+  response.sendFile(`${__dirname}/views/recipie.html`);
   // console.log(request.params);
   // console.log(request.params.productId);
   
