@@ -76,8 +76,6 @@ const cocktailRecipie = id => {
                 thirdDiv.appendChild(drinkIngredientText);
                 thirdDiv.appendChild(drinkIngredientList);
                 thirdDiv.appendChild(drinkDirections);
-                thirdDiv.appendChild(fourthDiv);
-
             };
 
         })
