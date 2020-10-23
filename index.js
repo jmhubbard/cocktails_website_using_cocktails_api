@@ -22,14 +22,23 @@ app.use((req, res, next) => {
     next();
   });
 
-// Load the cocktail.html file at the root URL
-app.get("/", (request, response) => {
-  response.sendFile(`${__dirname}/cocktails.html`);
-  });
 
-// app.get("/bootstrap", (request, response) => {
-//   response.sendFile(`${__dirname}/test.html`);
-// });
+app.get("/", (request, response) => {
+  response.sendFile(`${__dirname}/views/home.html`);
+});
+
+app.get("/drinksAtoZ/:letter", (request, response) => {
+  response.sendFile(`${__dirname}/views/drinksAtoZ.html`);
+});
+
+app.get('/recipie/:drinkID',function(request,response){
+  response.sendFile(`${__dirname}/views/recipie.html`);
+  // console.log(request.params);
+  // console.log(request.params.productId);
+  
+//  response.send("Path parameters printed to console");
+});
+
 // Start listening to incoming requests
 // If process.env.PORT is not defined, port number 3000 is used
 const listener = app.listen(process.env.PORT, () => {
