@@ -76,6 +76,9 @@ const cocktailRecipie = id => {
                 thirdDiv.appendChild(drinkIngredientText);
                 thirdDiv.appendChild(drinkIngredientList);
                 thirdDiv.appendChild(drinkDirections);
+
+                const currentTitle = document.getElementById("pagetitle");
+                currentTitle.textContent = `Cocktail Recipies - ${currentDrinkName}`;
             };
 
         })
@@ -83,7 +86,14 @@ const cocktailRecipie = id => {
             console.log(err.message);
         });
 };
-            
+
+const setShareUrl = () => {
+    const shareURL = document.getElementById("sharelink");
+    const id = currentDrinkID();
+    shareURL.href = `/recipie/${id}`;
+};
 
 const DrinkID = currentDrinkID();
 cocktailRecipie(DrinkID);
+
+setShareUrl();
