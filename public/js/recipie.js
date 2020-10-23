@@ -11,65 +11,97 @@ const cocktailRecipie = id => {
         .then(response => response.json())
         .then(alldrinks => {
             const albumRows = document.getElementById("albumRow");
-            
             if(alldrinks.drinks == null) {
                 const noDrinkMessage = document.createElement("p");
                 noDrinkMessage.textContent = "Whoops! There doesn't seem to be any drinks. Try a different letter."
                 drinksList.appendChild(noDrinkMessage);
             }
             else {
-                for(i = 0;i<alldrinks.drinks.length;i++) {
-                    const currentDrink = alldrinks.drinks[i];
-                    const currentDrinkName = currentDrink.strDrink;
-                    const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
-                    
-                    const firstDiv = document.createElement("div");
-                    firstDiv.className = "col-md-4";
-                    const secondDiv = document.createElement("div");
-                    secondDiv.classList.add("card", "mb-4", "shadow-sm");
-                    const thirdDiv = document.createElement("div");
-                    thirdDiv.className = "card-body";
+                const currentDrink = alldrinks.drinks[0];
+                const currentDrinkName = currentDrink.strDrink;
+                const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
+                const firstDiv = document.createElement("div");
+                // firstDiv.className = "col-md-4";
+                firstDiv.className = "mx-auto";
 
+                const secondDiv = document.createElement("div");
+                secondDiv.classList.add("card", "mb-4", "shadow-sm");
+                // secondDiv.classList.add("card", "w-100", "shadow-sm");
+                secondDiv.style.width = "50rem";
 
-                    const drinkImageElement = document.createElement("img");
-                    drinkImageElement.src = currentDrinkPictureUrl;
-                    drinkImageElement.className = "card-img-top";
-                    // drinkImageElement.style.width = 150px;
+                const thirdDiv = document.createElement("div");
+                thirdDiv.className = "card-body";
 
-                    const drinkName = document.createElement("p");
-                    drinkName.className = "card-text";
-                    drinkName.textContent = currentDrinkName;
+                const drinkImageElement = document.createElement("img");
+                drinkImageElement.src = currentDrinkPictureUrl;
+                drinkImageElement.className = "card-img-top";
+                const drinkName = document.createElement("h3");
+                drinkName.className = "card-text";
+                drinkName.textContent = currentDrinkName;
 
-                    const fourthDiv = document.createElement("div");
-                    fourthDiv.classList.add("d-flex", "justify-content-center");
+                const drinkIngredientText = document.createElement("h4");
+                drinkIngredientText.textContent = "Ingredients:";
 
-                    const fifthDiv = document.createElement("div");
-                    fifthDiv.className = "btn-group";
+                const drinkIngredientList = document.createElement("ul");
+                
+                const ingredientStr = "strIngredient";
+                const ingredientAmount = "strMeasure";
 
-                    const viewButton = document.createElement("button");
-                    viewButton.type = "button";
-                    viewButton.classList.add("btn", "btn-sm", "btn-outline-secondary");
-                    viewButton.textContent = "View Cocktail";
-
-                    
-                    albumRows.appendChild(firstDiv);
-                    firstDiv.appendChild(secondDiv);
-                    secondDiv.appendChild(drinkImageElement);
-                    secondDiv.appendChild(thirdDiv);
-                    thirdDiv.appendChild(drinkName);
-                    thirdDiv.appendChild(fourthDiv);
-                    fourthDiv.appendChild(fifthDiv);
-                    fifthDiv.appendChild(viewButton);
-
-                    
+                for(item = 1; item <= 25; item++) {
+                    const currentIngredient = currentDrink[ingredientStr + item];
+                    const currentIngredientAmount = currentDrink[ingredientAmount + item]; 
+                    if(currentIngredient != null && currentIngredientAmount != null) {
+                        const newIngredientListItem = document.createElement("li");
+                        newIngredientListItem.textContent = `${currentIngredientAmount} ${currentIngredient}`;
+                        drinkIngredientList.appendChild(newIngredientListItem);
+                    }
+                    else if (currentIngredient != null && currentIngredientAmount == null) {
+                        const newIngredientListItem = document.createElement("li");
+                        newIngredientListItem.textContent = `${currentIngredient}`;
+                        drinkIngredientList.appendChild(newIngredientListItem);
+                    };
                 };
-            }
+
+                const drinkDirections = document.createElement("p");
+                drinkDirections.textContent = currentDrink.strInstructions;
+
+
+                const fourthDiv = document.createElement("div");
+                fourthDiv.classList.add("d-flex", "justify-content-center");
+
+                const fifthDiv = document.createElement("div");
+                fifthDiv.className = "btn-group";
+
+                const viewButton = document.createElement("button");
+                viewButton.type = "button";
+                viewButton.classList.add("btn", "btn-sm", "btn-outline-secondary");
+                viewButton.textContent = "View Cocktail";
+
+                
+                albumRows.appendChild(firstDiv);
+
+                firstDiv.appendChild(secondDiv);
+
+                secondDiv.appendChild(drinkImageElement);
+                secondDiv.appendChild(thirdDiv);
+
+                thirdDiv.appendChild(drinkName);
+                thirdDiv.appendChild(drinkIngredientText);
+                thirdDiv.appendChild(drinkIngredientList);
+                thirdDiv.appendChild(drinkDirections);
+                thirdDiv.appendChild(fourthDiv);
+
+                fourthDiv.appendChild(fifthDiv);
+
+                fifthDiv.appendChild(viewButton);
+            };
 
         })
         .catch(err => {
             console.log(err.message);
-        })
+        });
 };
+            
 
 const DrinkID = currentDrinkID();
 cocktailRecipie(DrinkID);
