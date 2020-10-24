@@ -87,13 +87,5 @@ const cocktailRecipie = id => {
         });
 };
 
-const setShareUrl = () => {
-    const shareURL = document.getElementById("sharelink");
-    const id = currentDrinkID();
-    shareURL.href = `/recipie/${id}`;
-};
-
 const DrinkID = currentDrinkID();
 cocktailRecipie(DrinkID);
-
-// setShareUrl();
