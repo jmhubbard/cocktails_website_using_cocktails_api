@@ -96,4 +96,4 @@ const setShareUrl = () => {
 const DrinkID = currentDrinkID();
 cocktailRecipie(DrinkID);
 
-setShareUrl();
+// setShareUrl();

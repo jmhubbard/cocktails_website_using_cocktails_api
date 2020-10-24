@@ -83,4 +83,4 @@ const setShareUrl = () => {
 const currentLetter = currentUrlDrinkLetter();
 cocktailsByLetter(currentLetter);
 
-setShareUrl();
+// setShareUrl();
