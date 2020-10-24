@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.use(favicon(`${__dirname}/public/favicon.ico`));
+// app.use(favicon(`${__dirname}/public/favicon.ico`));
 
 // Enable CORS (see https://enable-cors.org/server_expressjs.html)
 app.use((req, res, next) => {
