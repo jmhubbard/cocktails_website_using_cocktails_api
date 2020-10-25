@@ -73,6 +73,11 @@ const cocktailsByLetter = letter => {
         })
 };
 
+const setHeaderbyLeader = (letter) => {
+    const currentHeader = document.getElementById("atozheader");
+    currentHeader.textContent = `"${letter.toUpperCase()}" Cocktails`;
+};
 
 const currentLetter = currentUrlDrinkLetter();
 cocktailsByLetter(currentLetter);
+setHeaderbyLeader(currentLetter);
