@@ -7,24 +7,25 @@ const currentUrlDrinkLetter = () => {
 };
 
 const cocktailsByLetter = letter => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
+    fetch(`https://morning-spire-15265.herokuapp.com/api/drink-by-letter/${letter}/`)
         .then(response => response.json())
         .then(alldrinks => {
             const albumRows = document.getElementById("albumRow");
             const currentTitle = document.getElementById("pagetitle");
             currentTitle.textContent = `Cocktail Recipies - All ${letter.toUpperCase()} Drinks`;
             
-            if(alldrinks.drinks == null) {
+            if(alldrinks == null) {
                 const noDrinkMessage = document.createElement("p");
                 noDrinkMessage.textContent = "Whoops! There doesn't seem to be any drinks. Try a different letter."
                 drinksList.appendChild(noDrinkMessage);
             }
             else {
-                for(i = 0;i<alldrinks.drinks.length;i++) {
-                    const currentDrink = alldrinks.drinks[i];
-                    const currentDrinkName = currentDrink.strDrink;
-                    const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
-                    const currentDrinkID = currentDrink.idDrink;
+                for(i = 0;i<alldrinks.length;i++) {
+                    const currentDrink = alldrinks[i];
+                    const currentDrinkName = currentDrink.name;
+                    console.log(currentDrinkName);
+                    const currentDrinkPictureUrl = currentDrink.image;
+                    const currentDrinkID = currentDrink.id;
                     
                     const firstDiv = document.createElement("div");
                     firstDiv.className = "col-md-4";
