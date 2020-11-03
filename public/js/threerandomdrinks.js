@@ -1,11 +1,10 @@
 
 const fetchRandomDrink1 = () => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    fetch("https://morning-spire-15265.herokuapp.com/api/random-drink/")
         .then(response => response.json())
         .then(randomDrink => {
-            const drink = randomDrink.drinks[0];
-            const drinkName = drink.strDrink;
-            const drinkImageURL = drink.strDrinkThumb;
+            const drinkName = randomDrink.name;
+            const drinkImageURL = randomDrink.image;
 
             const randoDrinkName1 = document.getElementById("randomDrinkName1");
             randoDrinkName1.textContent = drinkName;
@@ -20,7 +19,7 @@ const fetchRandomDrink1 = () => {
 };
 
 const fetchRandomDrink2 = () => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    fetch("https://morning-spire-15265.herokuapp.com/api/random-drink/")
         .then(response => response.json())
         .then(randomDrink => {
             const drink = randomDrink.drinks[0];
@@ -40,7 +39,7 @@ const fetchRandomDrink2 = () => {
 };
 
 const fetchRandomDrink3 = () => {
-fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+fetch("https://morning-spire-15265.herokuapp.com/api/random-drink/")
     .then(response => response.json())
     .then(randomDrink => {
         const drink = randomDrink.drinks[0];
@@ -60,14 +59,13 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 };
 
 const randomCocktail = () => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    fetch("https://morning-spire-15265.herokuapp.com/api/random-drink/")
         .then(response => response.json())
         .then(randomDrink => {
             const albumRows = document.getElementById("albumRow");        
-            const currentDrink = randomDrink.drinks[0];
-            const currentDrinkName = currentDrink.strDrink;
-            const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
-            const currentDrinkID = currentDrink.idDrink;
+            const currentDrinkName = randomDrink.name;
+            const currentDrinkPictureUrl = randomDrink.image;
+            const currentDrinkID = randomDrink.id;
             
             const firstDiv = document.createElement("div");
             firstDiv.className = "col-md-4";
@@ -111,10 +109,6 @@ const randomCocktail = () => {
             console.log(err.message);
         });
 };
-
-// fetchRandomDrink1();
-// fetchRandomDrink2();
-// fetchRandomDrink3();
 
 for(let i = 0; i < 3; i++) {
     randomCocktail();
