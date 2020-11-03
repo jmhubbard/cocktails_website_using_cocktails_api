@@ -7,19 +7,20 @@ const currentDrinkID = () => {
 };
 
 const cocktailRecipie = id => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+    fetch(`https://morning-spire-15265.herokuapp.com/api/drink-detail/${id}/`)
         .then(response => response.json())
-        .then(alldrinks => {
+        .then(currentDrink => {
+            console.log(currentDrink);
             const albumRows = document.getElementById("albumRow");
-            if(alldrinks.drinks == null) {
+
+            if(currentDrink == null) {
                 const noDrinkMessage = document.createElement("p");
                 noDrinkMessage.textContent = "Whoops! There doesn't seem to be any drinks. Try a different letter."
                 drinksList.appendChild(noDrinkMessage);
             }
             else {
-                const currentDrink = alldrinks.drinks[0];
-                const currentDrinkName = currentDrink.strDrink;
-                const currentDrinkPictureUrl = currentDrink.strDrinkThumb;
+                const currentDrinkName = currentDrink.name;
+                const currentDrinkPictureUrl = currentDrink.image;
                 const firstDiv = document.createElement("div");
                 firstDiv.className = "col-md-4";
                 // firstDiv.className = "mx-auto";
@@ -44,12 +45,11 @@ const cocktailRecipie = id => {
 
                 const drinkIngredientList = document.createElement("ul");
                 
-                const ingredientStr = "strIngredient";
-                const ingredientAmount = "strMeasure";
+                const currentIngredientList = currentDrink.ingredients;
 
-                for(item = 1; item <= 25; item++) {
-                    const currentIngredient = currentDrink[ingredientStr + item];
-                    const currentIngredientAmount = currentDrink[ingredientAmount + item]; 
+                for(let i = 0; i < currentIngredientList.length; i++) {
+                    const currentIngredient = currentIngredientList[i].name
+                    const currentIngredientAmount = currentIngredientList[i].amount
                     if(currentIngredient != null && currentIngredientAmount != null) {
                         const newIngredientListItem = document.createElement("li");
                         newIngredientListItem.textContent = `${currentIngredientAmount} ${currentIngredient}`;
@@ -63,7 +63,7 @@ const cocktailRecipie = id => {
                 };
 
                 const drinkDirections = document.createElement("p");
-                drinkDirections.textContent = currentDrink.strInstructions;
+                drinkDirections.textContent = currentDrink.instructions;
                 
                 albumRows.appendChild(firstDiv);
 
