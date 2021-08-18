@@ -78,7 +78,7 @@ const cocktailRecipie = id => {
                 thirdDiv.appendChild(drinkDirections);
 
                 const currentTitle = document.getElementById("pagetitle");
-                currentTitle.textContent = `Cocktail Recipies - ${currentDrinkName}`;
+                currentTitle.textContent = `Cocktail Recipes - ${currentDrinkName}`;
             };
 
         })

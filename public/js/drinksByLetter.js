@@ -12,7 +12,7 @@ const cocktailsByLetter = letter => {
         .then(alldrinks => {
             const albumRows = document.getElementById("albumRow");
             const currentTitle = document.getElementById("pagetitle");
-            currentTitle.textContent = `Cocktail Recipies - All ${letter.toUpperCase()} Drinks`;
+            currentTitle.textContent = `Cocktail Recipes - All ${letter.toUpperCase()} Drinks`;
             
             if(alldrinks == null) {
                 const noDrinkMessage = document.createElement("p");
